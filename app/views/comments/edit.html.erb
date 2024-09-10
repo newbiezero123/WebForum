@@ -1,0 +1,8 @@
+<div class="login-box">
+    <h1>Edit Comment</h1>
+    <%= simple_form_for([@forum, @comment]) do |f| %>
+    <%= f.input :message, label: "Comment" %>
+    <%= f.submit "Update Comment", class: "btn btn-success" %>
+    <button onclick="window.history.back();" class="btn btn-secondary">Back</button>
+    <% end %>
+</div>

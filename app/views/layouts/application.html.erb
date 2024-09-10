@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebForum</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> 
+    <%= stylesheet_link_tag "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css", integrity: "sha384...", crossorigin: "anonymous" %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_importmap_tags %>
+  </head> 
+<body>
+    <header class="Fix">
+        <nav class="w-100 p-4">
+          <div class="d-flex justify-content-between">
+            <div class="d-flex">
+                  <h2  style="margin-right:5px; padding: 5px 10px; font-size: 1.25rem;">
+                      <%= link_to "Home", root_path, class: "thread-button"%>
+                      <% if user_signed_in? %>
+                        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "thread-button" %>
+                      <% else %>
+                        <%=link_to "SignUp",new_user_registration_path, class: "thread-button"%>
+                        <%= link_to "Log In", new_user_session_path, class: "thread-button" %>
+                      <% end %>
+                  </h2>
+                  <h3 class="notice" style="color: white; margin-left:1px; padding: 5px 10px; font-size: 2.25rem;"><%= notice %></h3>
+                  <h3 class="alert"  style="color: white; margin-left:1px; padding: 5px 10px; font-size: 2.25rem;"><%= alert %></h3>
+            </div>
+              <div>
+                  <h2 style="margin-left: 10px; padding: 5px 10px; font-size: 1.25rem;"><%= link_to "New Forum Thread", new_forum_path,class: "thread-button" %></h2>
+              </div>
+          </div>    
+        </nav>
+    </header>
+   <div class="main-container d-flex flex-column min-vh-100">
+      <div class="content flex-grow-1">
+        <%= yield %>
+      </div>
+      <footer class="footer mt-auto">
+        <div class="bgg">
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <h5>About Us</h5>
+              <p>This web is for threads.</p>
+            </div>
+            <div class="col-md-4 mb-3">
+              <h5>Links</h5>
+              <ul class="list-unstyled">
+                <li><%= link_to "Home", root_path, class: "text-white" %></li>
+                <li><%= link_to "Sign Up", new_user_registration_path, class: "text-white" %></li>
+                <li><%= link_to "Log In", new_user_session_path, class: "text-white" %></li>
+              </ul>
+            </div>
+            <div class="col-md-4 mb-3">
+              <h5>Contact Us</h5>
+              <p>Email: newbie@gmail.com</p>
+              <p>Phone: 0958929xxx</p>
+            </div>
+          </div>
+          <div class="border-top pt-3">
+            <p class="mb-0">&copy; 2024 WebForum. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

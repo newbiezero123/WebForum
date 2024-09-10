@@ -1,0 +1,34 @@
+<div class="login-box">
+  <h2 class="text-center mb-4">Log in</h2>
+
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'needs-validation', novalidate: true }) do |f| %>
+    <div class="form-group">
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { class: 'form-control',style: "height: 50px; width: 100%; font-size: 20px;", autocomplete: "email", placeholder: "Email" },
+                  label_html: { class: 'form-label' } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :password,
+                  required: true,
+                  input_html: { class: 'form-control',style: "height: 50px; width: 100%; font-size: 20px;", autocomplete: "current-password", placeholder: "Password" },
+                  label_html: { class: 'form-label' } %>
+    </div>
+  <!--
+    <% if devise_mapping.rememberable? %>
+      <div class="form-check mb-3">
+        <%= f.input :remember_me, as: :boolean, label: "Remember me", input_html: { class: 'form-check-input' }, label_html: { class: 'form-check-label ms-2' } %>
+      </div>
+    <% end %>
+  -->
+    <div class="form-group">
+      <%= f.button :submit, "Log in", class: 'btn btn-primary btn-block' ,style: "height: 50px; width: 100%;"%>
+    </div>
+  <% end %>
+
+  <div class="text-center mt-4">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

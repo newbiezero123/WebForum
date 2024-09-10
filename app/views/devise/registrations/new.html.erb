@@ -1,0 +1,38 @@
+<div class="login-box">
+  <h2 class="text-center mb-4">Sign up</h2>
+
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'needs-validation', novalidate: true }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-group">
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { class: 'form-control',style: "height: 50px; width: 100%; font-size: 20px;", autocomplete: "email", placeholder: "Email" },
+                  label_html: { class: 'form-label' } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :password,
+                  required: true,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { class: 'form-control',style: "height: 50px; width: 100%; font-size: 20px;", autocomplete: "new-password", placeholder: "Password" },
+                  label_html: { class: 'form-label' } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :password_confirmation,
+                  required: true,
+                  input_html: { class: 'form-control',style: "height: 50px; width: 100%; font-size: 20px;", autocomplete: "new-password", placeholder: "Confirm Password" },
+                  label_html: { class: 'form-label' } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.button :submit, "Sign up", class: 'btn btn-primary btn-block',style: "height: 50px; width: 100%; font-size: 20px;" %>
+    </div>
+  <% end %>
+
+  <div class="text-center mt-4">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<h1 style="text-align: center;">ALL Forum</h1>
+<div class="center-content">
+    <% @forums.each do |forum| %>
+        <div class="forum-item">
+            <div class="thread-show-content">
+                <p>Likes: <%= forum.likes.count %></p>
+                <div class="bg-img">
+                    <% if forum.image.attached? %>
+                        <div class="forum-image-show">
+                            <%= image_tag forum.image, alt: "Forum Image", class: "img-fluid" %>
+                        </div>
+                    <% else %>
+                     <div class="no-image">
+                        <h2>no image</h2>
+                    </div>
+                    <% end %>
+                </div>
+                <h2 class="thread-title"><%= forum.thread %></h2>
+                <h2><%= link_to "View Forum", forum_path(forum),class: "thread-button-in" %></h2>
+            </div>   
+        </div>
+    <% end %>
+</div>

@@ -1,0 +1,16 @@
+<div class="login-box">
+  <h1>newbie.x.x.x</h1>
+  <%= simple_form_for @forum, html: { class: 'simple-form' } do |f| %>
+    <%= f.input :thread, label: 'Thread', as: :text,input_html: { class: 'form-control',style: "height: 100px; width: 100%; font-size: 30px;"} %>
+    <%= f.input :content, label: 'Content', as: :text, input_html: { class: 'form-control',style: "height: 200px; width: 100%; font-size: 20px;"} %>
+    <div class="form-group">
+      <%= f.label :image, class: 'form-label' %>
+      <div class="custom-file">
+        <%= f.file_field :image, class: 'custom-file-input' %>
+        <%= f.label :image, 'Choose file', class: 'custom-file-label' %>
+      </div>
+    </div>
+    <%= f.submit (@forum.new_record? ? "Create Post" : "Update Post"), class: "btn btn-success" %>
+    <button onclick="window.history.back();" class="btn btn-secondary">Back</button>
+  <% end %>
+</div>

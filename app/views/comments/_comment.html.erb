@@ -1,0 +1,8 @@
+<p style="font-size: 15px; color:blue;"><%= comment.message %></p>
+<p><b>Comment By:</b><%= comment.user.email %>,<%= comment.created_at.strftime("%d-%m-%Y %H:%M") %> ago</p>
+<% if user_signed_in? %>
+    <% if comment.user_id == current_user.id %>
+        <%= link_to "Edit Comment", edit_forum_comment_path(comment.forum, comment),class: "btn btn-warning" %>
+        <%= link_to "Delete", forum_comment_path(comment.forum, comment), method: :delete, data: {confirm: "Are you sure to delete this comment"}, class: "btn btn-danger" %>
+    <% end %>
+<% end %>
